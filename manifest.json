@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Alloy Clarity",
+    "description": "Provides simple formatting and link injection to make life a little easier.",
+    "version": "0.0.5",
+    "action": {
+      "default_popup": "hello.html",
+      "default_icon":{
+        "16": "images/alloy-symbol_black-16x16.png",
+        "32": "images/alloy-symbol_black-32x32.png",
+        "48": "images/alloy-symbol_black-48x48.png",
+        "128": "images/alloy-symbol_black-128x128.png"
+      }
+    },
+    "content_scripts": [
+        {
+            "css": [ "styles/pretty-print-json.css" ],
+            "js": ["scripts/pretty-print-json.js", "scripts/opensearch.js"],
+            "matches": [ "https://opensearch.alloy.sdm.network/*" ]
+        },
+        {
+            "js": ["scripts/alloy_eval.js"],
+            "css": ["styles/alloy.css"],
+            "matches": [ "https://app.alloy.co/v3/dashboard/*" ]
+        }
+      ],
+      "permissions": ["activeTab", "scripting"]
+  }
