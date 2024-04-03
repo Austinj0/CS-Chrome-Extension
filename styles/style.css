@@ -65,6 +65,9 @@ body{
 .disabled {
     opacity: .7;
 }
+.button.disabled {
+    cursor: default;
+}
 .switch {
     position: relative;
     height: 32px;
