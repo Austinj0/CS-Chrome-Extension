@@ -38,4 +38,47 @@ window.addEventListener('load', function () {
   }
   set_link();
 
+//function to read cookie values by name
+const getCookie = (name) => {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift(); 
+}
+const loadAccountData = (context) => {
+  document.cookie = "agent_name=" +context.agent.first_name+ ";expires=Thu, 07 May 2025 12:00:00 UTC;domain=app.alloy.co;path=/"
+  document.cookie = "agent_email=" +context.agent.email+ ";expires=Thu, 07 May 2025 12:00:00 UTC;domain=app.alloy.co;path=/"
+  /* set more data*/
+}
+//get alloy cookie for requests
+let csrftoken = getCookie("csrftoken-corekube-prod");
+let context;
+
+fetch("https://app.alloy.co/v3/user_context/", {
+  "headers": {
+    "accept": "*/*",
+    "accept-language": "en-US,en;q=0.9",
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "sec-ch-ua": "\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"macOS\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-csrftoken": csrftoken,
+    "x-requested-with": "XMLHttpRequest"
+  },
+  "referrer": "https://app.alloy.co/v3/dashboard/home/",
+  "referrerPolicy": "same-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+}).then(function(response) { return response.json(); })
+.then(function(json) {
+  context = json;
+  loadAccountData(context);
 })
+});
+
+
