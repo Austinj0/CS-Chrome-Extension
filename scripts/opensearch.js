@@ -1,31 +1,31 @@
-console.log("loaded")
-const beauty_btn = document.createElement('div');
-beauty_btn.classList += "inject_button";
-beauty_btn.innerText = "Beautify"
-document.querySelector("html").appendChild(beauty_btn);
-let beauty_state = false;
+console.log('loaded')
+const beautyBtn = document.createElement('div')
+beautyBtn.classList += 'inject_button'
+beautyBtn.innerText = 'Beautify'
+document.querySelector('html').appendChild(beautyBtn)
+let beautyState = false
 
 const beautify = () => {
-    if (beauty_state) {
-        const logs = document.querySelectorAll("[data-test-subj='tableDocViewRow-log-value']:not(.formatted)");
-        try {
-            for (i = 0; i < logs.length; i++) {
-                let log_json = JSON.parse(logs[i].innerText);
-                logs[i].innerHTML = prettyPrintJson.toHtml(log_json)
-                logs[i].classList.add("formatted");
-            }
-        }
-        catch { }
-        setTimeout(beautify, 1000);
-    }
+  if (beautyState) {
+    const logs = document.querySelectorAll("[data-test-subj='tableDocViewRow-log-value']:not(.formatted)")
+    try {
+      for (let i = 0; i < logs.length; i++) {
+        const logJson = JSON.parse(logs[i].innerText)
+        // eslint-disable-next-line no-undef
+        logs[i].innerHTML = prettyPrintJson.toHtml(logJson)
+        logs[i].classList.add('formatted')
+      }
+    } catch { }
+    setTimeout(beautify, 1000)
+  }
 }
 
 const toggleBeauty = () => {
-    if (beauty_state) {
-        beauty_state = false
-    } else {
-        beauty_state = true;
-        beautify()
-    }
+  if (beautyState) {
+    beautyState = false
+  } else {
+    beautyState = true
+    beautify()
+  }
 }
-beauty_btn.addEventListener('click', toggleBeauty);
+beautyBtn.addEventListener('click', toggleBeauty)
