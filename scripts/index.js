@@ -123,3 +123,11 @@ const setAlloyData = (data) => {
 getCookies({ domain: '.app.alloy.co' }, function (data) {
   setAlloyData(data)
 })
+// eslint-disable-next-line no-undef
+chrome.storage.local.get('feature_flags', function (items) {
+  const allFF = JSON.parse(items.feature_flags)
+  const activeFF = Object.entries(allFF).filter(([key, value]) => value === true)
+  for(let i =0; i<activeFF.length;i++) {
+    
+  }
+})

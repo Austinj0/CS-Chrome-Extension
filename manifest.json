@@ -35,6 +35,10 @@
             "matches": [ "https://app.alloy.co/v3/dashboard/*" ]
         },
         {
+          "js": ["scripts/alloy_workflow_column.js"],
+          "matches": [ "https://app.alloy.co/v3/dashboard/workflows/*" ]
+      },
+        {
           "js": ["scripts/sdk.js"],
           "matches": [ "https://*/*","file:///*" ]
       }
@@ -42,5 +46,5 @@
       "host_permissions": [
         "<all_urls>"
       ],
-      "permissions": ["activeTab", "scripting","tabs", "sidePanel","cookies"]
+      "permissions": ["activeTab", "scripting","tabs", "sidePanel","cookies",  "storage"]
   }
