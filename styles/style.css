@@ -21,7 +21,7 @@ body{
     margin: .15em;
 }
 .logo_wrap {
-    background-color: #1AB394;
+    background-color: #f1f1f1;
     border-radius: 1em;
     padding: 1em;
 }
@@ -75,6 +75,9 @@ body{
 .between {
     justify-content: space-between;
 }
+.pb-fix {
+  padding-bottom: 80px;
+}
 .no-border {
     border: none;
 }
@@ -108,6 +111,7 @@ body{
     font-size: 1.1em;
     padding: 1em;
     min-width: 25px;
+    max-width: 43px;
     color: #a4a4a4;
     transition: ease-in-out;
     background-color: white;
@@ -215,7 +219,7 @@ body{
     color:inherit;
   }
   .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
