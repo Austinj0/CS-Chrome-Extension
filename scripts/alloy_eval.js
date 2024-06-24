@@ -43,9 +43,14 @@ window.addEventListener('load', function () {
     if (parts.length === 2) return parts.pop().split(';').shift()
   }
   const loadAccountData = (context) => {
+    const ff = context.feature_flags
+    delete ff.$flagsState
     document.cookie = 'agent_name=' + context.agent.first_name + ';expires=Thu, 07 May 2025 12:00:00 UTC;domain=app.alloy.co;path=/'
     document.cookie = 'agent_email=' + context.agent.email + ';expires=Thu, 07 May 2025 12:00:00 UTC;domain=app.alloy.co;path=/'
-    document.cookie = 'feature_flags=' + context.feature_flags + ';expires=Thu, 07 May 2025 12:00:00 UTC;domain=app.alloy.co;path=/'
+    // eslint-disable-next-line no-undef
+    chrome.storage.local.set({ feature_flags: JSON.stringify(ff) }, function (){
+     
+  })
     document.cookie = 'customer_id=' + context.customer.customer_id + ';expires=Thu, 07 May 2025 12:00:00 UTC;domain=app.alloy.co;path=/'
   /* set more data */
   }

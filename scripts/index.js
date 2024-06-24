@@ -123,3 +123,20 @@ const setAlloyData = (data) => {
 getCookies({ domain: '.app.alloy.co' }, function (data) {
   setAlloyData(data)
 })
+// eslint-disable-next-line no-undef
+chrome.storage.local.get('feature_flags', function (items) {
+  const allFF = JSON.parse(items.feature_flags)
+  console.log(allFF)
+  const ffList = document.querySelector('#ff_list')
+  const activeFF = Object.entries(allFF).filter(([key, value]) => value === true)
+  activeFF.forEach(function(ff) {
+    const ffItem = document.createElement('li')
+    ffItem.classList.add('ff_active')
+    console.log(ff)
+    ffItem.innerText = ff[0]
+    const span = document.createElement('span')
+    span.innerText = 'Active'
+    ffItem.appendChild(span)
+    ffList.appendChild(ffItem)
+  })
+})
