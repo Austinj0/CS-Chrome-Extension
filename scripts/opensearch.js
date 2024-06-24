@@ -1,22 +1,26 @@
-console.log('loaded')
-const beautyBtn = document.createElement('div')
-beautyBtn.classList += 'inject_button'
-beautyBtn.innerText = 'Beautify'
-document.querySelector('html').appendChild(beautyBtn)
-let beautyState = false
+let beautyState = true;
 
 const beautify = () => {
   if (beautyState) {
-    const logs = document.querySelectorAll("[data-test-subj='tableDocViewRow-log-value']:not(.formatted)")
+    const logs = document.querySelectorAll("[data-test-subj='tableDocViewRow-log-value']:not([data-formatted])")
     try {
       for (let i = 0; i < logs.length; i++) {
-        const logJson = JSON.parse(logs[i].innerText)
-        // eslint-disable-next-line no-undef
+        try {
+          const logJson = JSON.parse(logs[i].innerText)
+          // eslint-disable-next-line no-undef
         logs[i].innerHTML = prettyPrintJson.toHtml(logJson)
-        logs[i].classList.add('formatted')
+        logs[i].dataset.formatted = 'formatted';
+        }
+        catch(e){
+          console.log(e)
+          console.log(logs[i].innerText);
+          beautifyState = false;
+        }
+        
+        
       }
-    } catch { }
-    setTimeout(beautify, 1000)
+    } catch(e) {console.log(e) }
+    setTimeout(beautify, 500)
   }
 }
 
@@ -28,4 +32,7 @@ const toggleBeauty = () => {
     beautify()
   }
 }
-beautyBtn.addEventListener('click', toggleBeauty)
+
+window.addEventListener('load', function () {
+  beautify()
+})
