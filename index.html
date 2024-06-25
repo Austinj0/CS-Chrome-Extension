@@ -1,84 +1,111 @@
 <html>
 <link rel="stylesheet" href="styles/style.css" />
+
 <body>
   <div id="app">
-    <div class="padding">
-      <div class="wrap between"><div></i></div><div><i class="fa-solid fa-ellipsis" style="font-size: 1.5em;"></i></div></div>
-    </div>
-     <div class="padding pb-fix">
+    <div class="padding pb-fix">
       <div class="wrap">
-          <div class="logo_wrap"><img class="logo" src="alloy-symbol_black.svg" width="15px" /></div>
-          <div class="title_wrap">
-            <p class="subtitle" id="agentEmail"></p>
-            <h2 class="title">Welcome <span id="agentName"></span></h2>
-          </div>
+        <div class="logo_wrap"><img class="logo" src="alloy-symbol_black.svg" width="15px" /></div>
+        <div class="title_wrap">
+          <p class="subtitle" id="agentEmail"></p>
+          <h2 class="title">Welcome <span id="agentName"></span></h2>
+        </div>
       </div>
       <div>
-            <p class="fancy_text">Search Logs</p>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="switch">
-          <input id="switch-y" name="tripple" type="radio" value="Y" class="switch-input" checked/>
-          <label for="switch-y" class="switch-label switch-label-y">Evaluation</label>
-          <input id="switch-i" name="tripple" type="radio" value="I" class="switch-input" />
-          <label for="switch-i" class="switch-label switch-label-i">Journey App</label>
-          <input id="switch-n" name="tripple" type="radio" value="N" class="switch-input" />
-          <label for="switch-n" class="switch-label switch-label-n">Client</label>
-          <span class="switch-selector"></span>
+        <p class="fancy_text">Search Logs</p>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="switch">
+              <input id="switch-y" name="tripple" type="radio" value="Y" class="switch-input" checked />
+              <label for="switch-y" class="switch-label switch-label-y">Evaluation</label>
+              <input id="switch-i" name="tripple" type="radio" value="I" class="switch-input" />
+              <label for="switch-i" class="switch-label switch-label-i">Journey App</label>
+              <input id="switch-n" name="tripple" type="radio" value="N" class="switch-input" />
+              <label for="switch-n" class="switch-label switch-label-n">Client</label>
+              <span class="switch-selector"></span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
       </div>
       <div class="wrap full">
-          <input placeholder="L-xxxxxxxxxxxxxxxxxxxx" class="no-border input" id="search"/>
-          <div class="button blue disabled" id="submit">Find</div>
+        <input placeholder="L-xxxxxxxxxxxxxxxxxxxx" class="no-border input" id="search" />
+        <div class="button blue disabled" id="submit">Find</div>
       </div>
       <p class="fancy_text">Toolbox</p>
-      <a href="https://retool-ue1-01.alloy.sdm.network/apps/fe7d0850-ea9c-11ed-b89e-b3a8292e8d2c/Solutions/Attribute%20Usage%20Explorer" target="_blank" class="card_link">
-      <div class="card">
-        <h3 class="card_title">Attribute Usage Explorer</h3>
-        <p class="subtitle">Find how many clients use an attribute</p>
-      </div>
-    </a>
-    <a href="https://retool-ue1-01.alloy.sdm.network/apps/70116550-1460-11ee-96f0-13692ad92adb/Solutions/Alloy%20Token%20Lookup" target="_blank" class="card_link">
-      <div class="card">
-        <h3 class="card_title">Alloy Token Lookup</h3>
-        <p class="subtitle">Find a token in our database</p>
-      </div></a>
-      <a href="https://retool-ue1-01.alloy.sdm.network/apps/3865a0d4-7f91-11ee-8828-73a4d284d386/Solutions/Service%20Action%20Option%20Explorer" target="_blank" class="card_link">
-      <div class="card">
-        <h3 class="card_title">Action Option Explorer</h3>
-        <p class="subtitle">Get insights on an action option</p>
-      </div>
-    </a>
-     <p class="fancy_text">Automatic Checks</p>
-     <div class="card">
-       <h3 class="card_title">SDK Troubleshooting [TBD]</h3>
-       <p class="subtitle">Start automatic SDK investigation</p>
-     </div>
-    </div>
-     <div class="border wrap between footer">
-      <div class="button circle active" title="Apply JSON Formatting"><i class="fa-solid fa-paintbrush"></i></div>
-      <div class="button circle" title="SDK Assistant"><i class="fa-solid fa-code"></i></div>
-      <div class="button circle" id="openAccountDetails" title="Account Details"><i class="fa-solid fa-magnifying-glass-minus"></i></i></div>
-      <div class="button circle" title="Apply JSON Formatting"><i class="fa-solid fa-gear"></i></i></div>
-     </div>
-     <div class="inner_panel hidden" id="accountDetails">
-      <div class="wrap">
-        <div id="closeAccountDetails"><i class="fa-solid fa-xmark"></i></div>
-        <div class="title_wrap">
-          <p class="subtitle">Customer ID: 20570</p>
-          <h2 class="title">Austin Test</h2>
+      <a href="https://retool-ue1-01.alloy.sdm.network/apps/fe7d0850-ea9c-11ed-b89e-b3a8292e8d2c/Solutions/Attribute%20Usage%20Explorer"
+        target="_blank" class="card_link">
+        <div class="card">
+          <h3 class="card_title">Attribute Usage Explorer</h3>
+          <p class="subtitle">Find how many clients use an attribute</p>
         </div>
+      </a>
+      <a href="https://retool-ue1-01.alloy.sdm.network/apps/70116550-1460-11ee-96f0-13692ad92adb/Solutions/Alloy%20Token%20Lookup"
+        target="_blank" class="card_link">
+        <div class="card">
+          <h3 class="card_title">Alloy Token Lookup</h3>
+          <p class="subtitle">Find a token in our database</p>
+        </div>
+      </a>
+      <a href="https://retool-ue1-01.alloy.sdm.network/apps/3865a0d4-7f91-11ee-8828-73a4d284d386/Solutions/Service%20Action%20Option%20Explorer"
+        target="_blank" class="card_link">
+        <div class="card">
+          <h3 class="card_title">Action Option Explorer</h3>
+          <p class="subtitle">Get insights on an action option</p>
+        </div>
+      </a>
     </div>
+    <div class="border wrap between footer">
+      <div class="button circle" title="Account Details" data-panel="accountDetails"><i
+          class="fa-solid fa-magnifying-glass-minus"></i></i></div>
+          <div class="button circle" title="SDK Assistant" data-panel="SDK"><i class="fa-solid fa-code"></i></div>
+      <div class="button circle" title="Apply JSON Formatting" data-panel="settings"><i
+          class="fa-solid fa-gear"></i></i></div>
+    </div>
+    <div class="inner_panel hidden" id="accountDetails">
+      <div class="wrap">
+        <div class="close_panel"><i class="fa-solid fa-xmark"></i></div>
+        <div class="title_wrap">
+          <p class="subtitle">Account Info</p>
+          <h2 class="title">Details on Current Account</h2>
+        </div>
+      </div>
+       <div class="pt">
+        <p class="subtitle text-center">Customer ID: 20570</p>
+        <h2 class="title text-center">Austin Test</h2>
+       </div>
       <h3>Feature Flags</h3>
-      <div class="wrap between"><input placeholder="Search Feature Flag" class="no-border input" id="searchFF"> <i class="fa-solid fa-filter"></i>
+      <div class="wrap between pb"><input placeholder="Search Feature Flag" class="no-border input" id="searchFF"> <i
+          class="fa-solid fa-filter"></i>
       </div>
       <ul id="ff_list">
       </ul>
-     </div>
+    </div>
+    <div class="inner_panel hidden" id="settings">
+      <div class="wrap">
+        <div class="close_panel"><i class="fa-solid fa-xmark"></i></div>
+        <div class="title_wrap">
+          <p class="subtitle">Settings</p>
+          <h2 class="title">Customize Extension</h2>
+        </div>
+      </div>
+    </div>
+    <div class="inner_panel hidden" id="SDK">
+      <div class="wrap">
+        <div class="close_panel"><i class="fa-solid fa-xmark"></i></div>
+        <div class="title_wrap">
+          <p class="subtitle">SDK Wizard</p>
+          <h2 class="title">SDK Troubleshooting</h2>
+        </div>
+      </div>
+      <p class="fancy_text">Automatic Checks</p>
+        <div class="card">
+          <h3 class="card_title">SDK Troubleshooting [TBD]</h3>
+          <p class="subtitle">Start automatic SDK investigation</p>
+        </div>
+    </div>
   </div>
 </body>
 <script src="scripts/index.js"></script>
 <script src="fontawesome/js/all.min.js" crossorigin="anonymous"></script>
+
 </html>

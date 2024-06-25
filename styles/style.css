@@ -52,6 +52,10 @@ body{
 .padding {
     padding: 1em;
 }
+.pt{
+  padding-top: 2em;
+}
+
 .wrap {
     display: flex;
     align-items: center;
@@ -70,6 +74,7 @@ body{
     justify-content: flex-start;
 }
 .center {
+  display: flex;
     justify-content: center;
 }
 .between {
@@ -77,6 +82,9 @@ body{
 }
 .pb-fix {
   padding-bottom: 80px;
+}
+.pb {
+  padding-bottom: 1em;
 }
 .no-border {
     border: none;
@@ -218,6 +226,9 @@ body{
     text-decoration: none;
     color:inherit;
   }
+  .text-center {
+    text-align: center;
+  }
   .footer {
     position: fixed;
     bottom: 0;
@@ -243,7 +254,7 @@ body{
   #ff_list {
     padding: 1em 0 1em 0;
     margin: 0;
-    height: 500px;
+    height: 350px;
     overflow-y: auto;
   }
   #ff_list li {
@@ -259,7 +270,8 @@ body{
     width: 75px;text-align: center;
   }
   .ff_active span {
-    background-color: #aff68b;
+    background-color: #1ab394;
+    color: white;
   }
   .ff_inactive span {
     background-color: #f68b8b;
