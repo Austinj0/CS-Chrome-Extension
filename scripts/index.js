@@ -4,11 +4,12 @@ const switches = document.querySelectorAll('.switch-input')
 // const git = document.querySelector(".git");
 const uiButtons = document.querySelectorAll('.circle')
 const accountDetails = document.querySelector('#accountDetails')
-const closeAccountDetails = document.querySelector('#closeAccountDetails')
+const settings = document.querySelector('#settings')
+const SDK = document.querySelector('#SDK')
+const panels = document.querySelectorAll('.inner_panel')
+const closePanel = document.querySelectorAll('.close_panel')
 const agentEmailUI = document.querySelector('#agentEmail')
 const agentNameUI = document.querySelector('#agentName')
-console.log(closeAccountDetails)
-const openAccountDetails = document.querySelector('#openAccountDetails')
 const labels = [
   'L-xxxxxxxxxxxxxxxxxxxx',
   'JA-xxxxxxxxxxxxxxxxxxxx',
@@ -80,20 +81,51 @@ git.addEventListener('click',function(){
     window.open("https://github.com/Austinj0/CS-Chrome-Extension", "_blank").focus();
 })
 */
-for (let i = 0; i < uiButtons.length; i++) {
-  uiButtons[i].addEventListener('click', function () {
-    uiButtons[i].classList.toggle('active')
+const removeActive = () => {
+  uiButtons.forEach(u => {
+    u.classList.remove('active')
   })
 }
+uiButtons.forEach(button => {
+  button.addEventListener('click', function (e) {
+    const target = e.target.closest("[data-panel]");
+    if (!target) {
+      console.log("Error: UI Element Not Found");
+      return;
+    }
 
-openAccountDetails.addEventListener('click', function () {
-  accountDetails.classList.toggle('hidden')
-  openAccountDetails.classList.toggle('active')
-})
-closeAccountDetails.addEventListener('click', function () {
-  accountDetails.classList.toggle('hidden')
-  openAccountDetails.classList.toggle('active')
-})
+    const targetPanel = target.dataset.panel;
+    const panels = {
+      'settings': settings,
+      'accountDetails': accountDetails,
+      'SDK': SDK
+    };
+
+    closePanels();
+
+    if (target.classList.contains('active')) {
+      target.classList.toggle('active');
+    } else if (panels[targetPanel]) {
+      removeActive();
+      target.classList.toggle('active');
+      panels[targetPanel].classList.toggle('hidden');
+    } else {
+      console.log("Error: UI Element Not Found");
+    }
+  });
+});
+
+const closePanels = () => {
+  panels.forEach(p => {
+    p.classList.add('hidden');
+  })
+}
+for(let i = 0; i < closePanel.length; i++) {
+  closePanel[i].addEventListener('click', function () {
+    removeActive();
+    closePanels();
+  })
+}
 
 function getCookies (AlloyCookies, callback) {
   // eslint-disable-next-line no-undef
