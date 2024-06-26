@@ -1,6 +1,15 @@
 let beautyState = true;
-
+const getCookie = (name) => {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+  
+}
 const beautify = () => {
+  if(getCookie('prettyPrint') === 'false') {
+    beautyState = false;
+} else {beautyState = true 
+}
   if (beautyState) {
     const logs = document.querySelectorAll("[data-test-subj='tableDocViewRow-log-value']:not([data-formatted])")
     try {
@@ -20,10 +29,10 @@ const beautify = () => {
         
       }
     } catch(e) {console.log(e) }
-    setTimeout(beautify, 500)
   }
+  setTimeout(beautify, 500)
 }
-
+// this might be redundant should probably remove 
 const toggleBeauty = () => {
   if (beautyState) {
     beautyState = false

@@ -10,6 +10,8 @@ const panels = document.querySelectorAll('.inner_panel')
 const closePanel = document.querySelectorAll('.close_panel')
 const agentEmailUI = document.querySelector('#agentEmail')
 const agentNameUI = document.querySelector('#agentName')
+const alloyPretty = document.querySelector('#alloy_pretty')
+const osPretty = document.querySelector('#os_pretty')
 const labels = [
   'L-xxxxxxxxxxxxxxxxxxxx',
   'JA-xxxxxxxxxxxxxxxxxxxx',
@@ -172,3 +174,22 @@ chrome.storage.local.get('feature_flags', function (items) {
     ffList.appendChild(ffItem)
   })
 })
+const setToggle = (name,domain, value) => {
+  console.log({"name":name,"url":domain,"value":value,expirationDate:1750899352000})
+  chrome.cookies.set({"name":name,"url":domain,"value":value,expirationDate:1750899352000},function (cookie){
+});
+}
+osPretty.addEventListener('change', function() {
+  if (this.checked) {
+   setToggle('prettyPrint',"https://opensearch.alloy.sdm.network", 'true')
+  } else {
+    setToggle('prettyPrint',"https://opensearch.alloy.sdm.network", 'false')
+  }
+});
+alloyPretty.addEventListener('change', function() {
+  if (this.checked) {
+    setToggle('prettyPrint',"https://app.alloy.co", 'true')
+  } else {
+    setToggle('prettyPrint',"https://app.alloy.co", 'false')
+  }
+});
