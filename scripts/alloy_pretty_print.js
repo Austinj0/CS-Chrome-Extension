@@ -1,6 +1,15 @@
 let beautyState = true;
-
+const getCookie = (name) => {
+    const value = `; ${document.cookie}`
+    const parts = value.split(`; ${name}=`)
+    if (parts.length === 2) return parts.pop().split(';').shift()
+    
+  }
 const beautify = () => {
+    if(getCookie('prettyPrint') === 'false') {
+        beautyState = false;
+    } else {beautyState = true 
+    }
   if (beautyState) {
     const logs = document.querySelectorAll("pre.monospace-code-block:not(.formatted)")
     try {
@@ -16,12 +25,10 @@ const beautify = () => {
           console.log(logs[i].innerText);
           beautifyState = false;
         }
-        
-        
       }
     } catch(e) {console.log(e) }
-    setTimeout(beautify, 500)
   }
+  setTimeout(beautify, 500)
 }
 
 const toggleBeauty = () => {
