@@ -46,6 +46,10 @@
         "css": [ "styles/pretty-print-json.css" ],
         "js": ["scripts/pretty-print-json.js","scripts/alloy_pretty_print.js"],
         "matches": ["https://app.alloy.co/entities/*/evaluations/*/", "https://app.alloy.co/v3/dashboard/journeys/*/applications/*"]
+      },
+      {
+        "js" : ["scripts/alloy_decrypt.js"],
+       "matches":["https://app.alloy.co/v3/dashboard/admin/decrypt/*"]
       }
       ],
       "host_permissions": [
