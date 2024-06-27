@@ -334,3 +334,129 @@ body{
     height: 25px;
     width: 45px;
   }
+  .block_button {
+    background-color: #1AB394;
+    color: white;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    padding: .75em;
+    margin-top: 20px;
+    border-radius: 1em;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .4s ease-in-out;
+  }
+  .block_button:active{
+    transition: .2s ease-in-out;
+    background-color: #1ab3949f;
+  }
+  .sdk_results {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    
+  }
+  .loader {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #cdcdcd;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+.task_tab {
+  background-color: #ececec;
+  padding: .5em;
+  border-radius: .5em;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+}
+.task_wrap {
+  max-height: 380px;
+  padding-bottom: 4em;
+  overflow: scroll;
+}
+.task_tab.success {
+  background-color: rgb(90, 172, 90);
+}
+.task_tab.alert{
+  background-color: rgb(200, 68, 68);
+}
+.task {
+  display: flex;
+  align-items: start;
+}
+.tasks {
+  padding: 0 0 0 2em;
+  width: 400px;
+}
+.task_item {
+  padding-bottom: 1em;
+  font-size: 14px;
+  padding: .5em;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border-radius: .5em;
+    width: 100%;
+}
+.task_item.success {
+  background-color: #36a86524;
+}
+.task_item.alert {
+  background-color: #d3343486;
+}
+.task_item.gray {
+  background-color: #dfdfdfff;
+}
+.checkmark {
+  display: inline-block;
+  margin-top: -2px;
+}
+.checkmark:after {
+  /*Add another block-level blank space*/
+  content: '';
+  display: block;
+  /*Make it a small rectangle so the border will create an L-shape*/
+  width: 8px;
+  height: 15px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+span.alert {
+  color: white;
+  font-size: 24px;
+}
+span.alert::after {
+  content: "!";
+}
+.param_wrap {
+  padding-bottom: .75em;
+  color: brown;
+  padding-left: 1em;
+  font-size: 1.1em;
+}
+.param_wrap .code {
+  color: olive;
+}
+.param_p {
+  margin: 0;
+  padding: 0;
+}

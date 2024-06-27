@@ -193,3 +193,31 @@ alloyPretty.addEventListener('change', function() {
     setToggle('prettyPrint',"https://app.alloy.co", 'false')
   }
 });
+
+const startSDK = document.querySelector("#SDK_Wizard");
+startSDK.addEventListener('click',function(){
+  startSDK.classList.add('disabled');
+  const loaders = document.querySelectorAll(".loader");
+  const tabs = document.querySelectorAll(".task_tab");
+  
+  setTimeout(function(){
+    AOS.init();
+    setTimeout(function(){
+      loaders[0].classList.remove('loader')
+      loaders[0].classList.add('checkmark')
+      tabs[0].classList.add('success')
+  }, 2500);
+  setTimeout(function(){
+    loaders[1].classList.remove('loader')
+    loaders[1].classList.add('checkmark')
+    tabs[1].classList.add('success')
+  }, 3800);
+  setTimeout(function(){
+    loaders[2].classList.remove('loader')
+    loaders[2].classList.add('alert')
+    tabs[2].classList.add('alert')
+    startSDK.classList.remove('disabled')
+  }, 4500);
+  }, 1500);
+  
+})

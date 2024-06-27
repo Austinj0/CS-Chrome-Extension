@@ -1,6 +1,6 @@
 <html>
 <link rel="stylesheet" href="styles/style.css" />
-
+<link rel="stylesheet" href="styles/aos.css" />
 <body>
   <div id="app">
     <div class="padding pb-fix">
@@ -57,7 +57,7 @@
     <div class="border wrap between footer">
       <div class="button circle" title="Account Details" data-panel="accountDetails"><i
           class="fa-solid fa-magnifying-glass-minus"></i></i></div>
-          <div class="button circle" title="SDK Assistant" data-panel="SDK"><i class="fa-solid fa-code"></i></div>
+      <div class="button circle" title="SDK Assistant" data-panel="SDK"><i class="fa-solid fa-code"></i></div>
       <div class="button circle" title="Apply JSON Formatting" data-panel="settings"><i
           class="fa-solid fa-gear"></i></i></div>
     </div>
@@ -69,10 +69,10 @@
           <h2 class="title">Details on Current Account</h2>
         </div>
       </div>
-       <div class="pt">
+      <div class="pt">
         <p class="subtitle text-center">Customer ID: 20570</p>
         <h2 class="title text-center">Austin Test</h2>
-       </div>
+      </div>
       <h3>Feature Flags</h3>
       <div class="wrap between pb"><input placeholder="Search Feature Flag" class="no-border input" id="searchFF"> <i
           class="fa-solid fa-filter"></i>
@@ -91,11 +91,13 @@
       <h3>Pretty Print</h3>
       <div class="wrap between">
         <p>Open Search</p>
-      <div class="slider_wrap"><input type="checkbox" class="checkbox" checked id="os_pretty"/><label for="os_pretty" class="toggle"></label></div>
+        <div class="slider_wrap"><input type="checkbox" class="checkbox" checked id="os_pretty" /><label for="os_pretty"
+            class="toggle"></label></div>
       </div>
       <div class="wrap between">
         <p>Alloy Dashboard</p>
-      <div class="slider_wrap"><input type="checkbox" class="checkbox" checked id="alloy_pretty"/><label for="alloy_pretty" class="toggle"></label></div>
+        <div class="slider_wrap"><input type="checkbox" class="checkbox" checked id="alloy_pretty" /><label
+            for="alloy_pretty" class="toggle"></label></div>
       </div>
     </div>
     <div class="inner_panel hidden" id="SDK">
@@ -106,15 +108,47 @@
           <h2 class="title">SDK Troubleshooting</h2>
         </div>
       </div>
-      <p class="fancy_text">Automatic Checks</p>
-        <div class="card">
-          <h3 class="card_title">SDK Troubleshooting [TBD]</h3>
-          <p class="subtitle">Start automatic SDK investigation</p>
+      <button class="block_button" id="SDK_Wizard">START</button>
+      <div class="sdk_results" data-aos="fade">
+        <h2 class="text-center" data-aos="fade" data-aos-delay="500">Prove Journey</h2>
+        <h3 class="param_p">Parameters</h3>
+        <div class="param_wrap">
+          Journey Token : <span class="code">J-vKNwgNUXxyCQ9KiVOHn8</span> <br>
+          Journey Application Token : <span class="code">JA-S6qzzviHlnWPArZjjEby</span><br>
+          SDK Key : <span class="code">2453a694-7061-4eed-b14e-e51ff74c9534</span>
         </div>
+       
+       <div class="task_wrap">
+        <h3 data-aos-delay="500">Journey</h3>
+        <div class="task">
+          <div class="task_tab" data-aos="fade"><span class="loader"></span></div>
+          <div class="tasks">
+            <div class="task_item success" data-aos="fade-up" data-aos-delay="1500">Journey Token Exists</div>
+            <div class="task_item gray" data-aos="fade-up" data-aos-delay="1700">Journey Configured With <b>Prove</b></div>
+          </div>
+        </div>
+        <h3 data-aos-delay="500">Journey App</h3>
+        <div class="task">
+          <div class="task_tab" data-aos="fade"><span class="loader"></span></div>
+          <div class="tasks">
+            <div class="task_item success" data-aos="fade-up" data-aos-delay="2200">Journey Application Exists</div>
+            <div class="task_item success" data-aos="fade-up" data-aos-delay="2100" >Journey Application In Pending Step Up</div>
+          </div>
+        </div>
+        <h3 data-aos-delay="500">SDK Key</h3>
+        <div class="task">
+          <div class="task_tab" data-aos="fade"><span class="loader"></span></div>
+          <div class="tasks">
+            <div class="task_item alert" data-aos="fade-up" data-aos-delay="2900">SDK Key Does Not Exist</div>
+            <div class="task_item alert" data-aos="fade-up" data-aos-delay="3000"data-aos-offset="-300">SDK Key Not Associated With Journey</div>
+          </div>
+        </div>
+       </div>
+      </div>
     </div>
   </div>
 </body>
-<script src="scripts/index.js"></script>
 <script src="fontawesome/js/all.min.js" crossorigin="anonymous"></script>
-
+<script src="scripts/aos.js"></script>
+<script src="scripts/index.js"></script>
 </html>
